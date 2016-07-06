@@ -48,12 +48,10 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
     private AirMapCircleManager circleManager;
 
     public AirMapManager(
-            Activity activity,
             AirMapMarkerManager markerManager,
             AirMapPolylineManager polylineManager,
             AirMapPolygonManager polygonManager,
             AirMapCircleManager circleManager) {
-        this.reactActivity = activity;
         this.markerManager = markerManager;
         this.polylineManager = polylineManager;
         this.polygonManager = polygonManager;
@@ -75,7 +73,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
             e.printStackTrace();
             emitMapError("Map initialize error", "map_init_error");
         }
-        AirMapView view = new AirMapView(context, reactActivity, this);
+        AirMapView view = new AirMapView(context, this);
 
         return view;
     }
